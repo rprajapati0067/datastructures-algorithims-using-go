@@ -74,3 +74,60 @@ func SumOfTwoNumbers(arr []int, k int) []string {
 
 	return result
 }
+
+func SortColors(nums []int) {
+	red := 0
+	white := 0
+	blue := 0
+
+	for i := 0; i < len(nums); i++ {
+		if nums[i] == 0 {
+			red++
+		} else if nums[i] == 1 {
+			white++
+		} else {
+			blue++
+		}
+	}
+
+	for i := 0; i < len(nums); i++ {
+		if i < red {
+			nums[i] = 0
+		} else if i >= red && i < white+red {
+			nums[i] = 1
+		} else {
+			nums[i] = 2
+		}
+	}
+	fmt.Println(nums)
+
+}
+
+/*
+ * Arrange Zero One Two, input: [2, 0, 2, 1, 0, 1, 0]
+ */
+func ArrangeZeroOneTwo(arr []int) []int {
+	start := 0
+	mid := 0
+	last := len(arr) - 1
+
+	for mid <= last {
+		if arr[mid] == 0 {
+
+			temp := arr[mid]
+			arr[mid] = arr[start]
+			arr[start] = temp
+			start++
+			mid++
+		} else if arr[mid] == 1 {
+			mid++
+		} else if arr[mid] == 2 {
+
+			temp := arr[mid]
+			arr[mid] = arr[last]
+			arr[last] = temp
+			last--
+		}
+	}
+	return arr
+}

@@ -17,4 +17,12 @@ func main() {
 
 	//  Sum of two number equal to k
 	fmt.Printf("Pairs: %v \n", warmups.SumOfTwoNumbers([]int{2, 1, 3, 6, 4, 8}, 9))
+	//  sort color Leet code
+	warmups.SortColors([]int{2, 0, 2, 1, 1, 1, 0, 2, 2})
+
+	//  Arrange zero one and two
+	result := warmups.ArrangeZeroOneTwo([]int{2, 0, 2, 1, 0, 1, 0})
+	for _, v := range result {
+		fmt.Printf("%d ", v)
+	}
 }
